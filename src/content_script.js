@@ -7,8 +7,8 @@ function walk(node)
 	
 	var child, next;
 	
-	if (node.tagName.toLowerCase() == 'input' || node.tagName.toLowerCase() == 'textarea'
-	    || node.classList.indexOf('ace_editor') > -1) {
+	if  ((node.tagName != null && (node.tagName.toLowerCase() == 'input' || node.tagName.toLowerCase() == 'textarea'))
+      ||(node.classList != null && node.classList.contains('ace_editor'))) {
 		return;
 	}
 
@@ -27,6 +27,7 @@ function walk(node)
 			break;
 
 		case 3: // Text node
+      console.log('Found a text node');
 			handleText(node);
 			break;
 	}
@@ -35,15 +36,17 @@ function walk(node)
 function handleText(textNode) 
 {
 	var v = textNode.nodeValue;
+  
+  console.log('Replacing node value:' + textNode.nodeValue);
 
-	v = v.replace(/\ba\b/g, "o");
-	v = v.replace(/\be\b/g, "o");
-	v = v.replace(/\bi\b/g, "o");
-	v = v.replace(/\bu\b/g, "o");
-  v = v.replace(/\bAb/g, "O");
-	v = v.replace(/\bEb/g, "O");
-	v = v.replace(/\bIb/g, "O");
-	v = v.replace(/\bUb/g, "O);
+	v = v.replace(/a/g, "o");
+	v = v.replace(/e/g, "o");
+	v = v.replace(/i/g, "o");
+	v = v.replace(/u/g, "o");
+        v = v.replace(/A/g, "O");
+	v = v.replace(/E/g, "O");
+	v = v.replace(/I/g, "O");
+	v = v.replace(/U/g, "O");
 	
 	textNode.nodeValue = v;
 }
