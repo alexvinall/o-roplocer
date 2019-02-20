@@ -1,0 +1,14 @@
+{
+	"manifest_version": 2,
+	"name": "O Roplocer",
+	"version": "1.0",
+	"description": "Replaces non-'o' vowels with 'o'.",
+	"content_scripts": 
+	[
+		{
+			"matches": ["*://*/*"],
+			"js": ["content_script.js"],
+			"run_at": "document_end"
+		}
+	]
+}
