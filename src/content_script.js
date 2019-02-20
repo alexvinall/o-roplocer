@@ -43,7 +43,7 @@ function handleText(textNode)
 	v = v.replace(/e/g, "o");
 	v = v.replace(/i/g, "o");
 	v = v.replace(/u/g, "o");
-        v = v.replace(/A/g, "O");
+  v = v.replace(/A/g, "O");
 	v = v.replace(/E/g, "O");
 	v = v.replace(/I/g, "O");
 	v = v.replace(/U/g, "O");
